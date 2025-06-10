@@ -1,4 +1,6 @@
 import requests
+from zoneinfo import ZoneInfo
+
 from bs4 import BeautifulSoup
 from datetime import datetime
 
@@ -62,7 +64,7 @@ def fetch_trending_repos(since="daily"):
             "forks": forks,
             "stars_growth": stars_growth,
             "time_span": since,
-            "fetched_at": datetime.utcnow()
+            "fetched_at": datetime.now(ZoneInfo("Pacific/Auckland"))
         })
 
     return repos
